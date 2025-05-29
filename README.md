@@ -1,10 +1,7 @@
-# transactional_database
-A simulation of a real-world retail system with an OLTP schema for daily operations, an OLAP star schema for analytics, and a custom ETL pipeline. Enables insights through analytical queries on sales, customers, and products. Ideal for practicing data modeling and BI.
-
 # OLTP & OLAP Integrated Retail Data Warehouse
 
 ## Overview
-This project simulates a retail data pipeline that combines Online Transaction Processing (OLTP) and Online Analytical Processing (OLAP).
+A simulation of a real-world retail system with an OLTP schema for daily operations, an OLAP star schema for analytics, and a custom ETL pipeline. Enables insights through analytical queries on sales, customers, and products. Ideal for practicing data modeling and BI.
 
 ## Structure
 - `/oltp_schema/`: Contains the transactional schema
