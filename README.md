@@ -20,3 +20,4 @@ A simulation of a real-world retail system with an OLTP schema for daily operati
 ## Author & Contributors
 Justice Chawanda 670444 (@jpchawanda1)
 Cynthia Gathogo 668745 (@cngathogo)
+Paul Mbuvi 669984 (@paulmbuvi)
