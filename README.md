@@ -17,7 +17,19 @@ A simulation of a real-world retail system with an OLTP schema for daily operati
 4. Run ETL to populate fact_sales.
 5. Execute analytical queries.
 
-## Author & Contributors
-Justice Chawanda 670444 (@jpchawanda1)
-Cynthia Gathogo 668745 (@cngathogo)
-Paul Mbuvi 669984 (@paulmbuvi)
+## 🤝 Contributing
+
+This project was developed by the team below as part of the course requirements. Contributions from outside collaborators are welcome via pull requests — please fork the repository and submit your changes for review.
+
+## 👥 Team Members
+
+- [Misati Nyambane](https://github.com/mistiusiu) – 670145  
+- [Justice Chawanda](https://github.com/jpchawanda1) – 670444  
+- [Samuel Abrha](https://github.com/SamAbr) – 670533  
+- [Paul Mbuvi](https://github.com/paulmbuvi) – 669984  
+- [Cynthia Gathogo](https://github.com/cngathogo) – 668745  
+- [Ambachow Kahsay](https://github.com/aykahsay) – 670550
+
+## 🪪 License
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
