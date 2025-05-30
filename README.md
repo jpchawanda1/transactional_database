@@ -1,157 +1,161 @@
 # DSA 2040A US 2025 LAB 2: OLTP + OLAP Integration
 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)]()
-[![License](https://img.shields.io/badge/license-MIT-blue)]()
-[![Last Commit](https://img.shields.io/github/last-commit/yourusername/yourrepo)]()
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/aykahsay)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Last Commit](https://img.shields.io/github/last-commit/aykahsay/DSA2040-LAB2)](https://github.com/aykahsay/DSA2040-LAB2/commits)
+
+## 📚 Table of Contents
+
+- [🧠 Project Overview](#-project-overview)
+- [🗂️ Repository Structure](#️-repository-structure)
+- [🎯 Core Objectives](#-core-objectives)
+- [🚀 Getting Started](#-getting-started)
+- [🔄 Normalization vs. Denormalization](#-normalization-vs-denormalization)
+- [❓ Why Separate OLTP and OLAP?](#-why-separate-oltp-and-olap)
+- [⏱️ Automation & ETL Scheduling](#️-automation--etl-scheduling)
+- [🧪 Testing](#-testing)
+- [🐞 Known Issues](#-known-issues)
+- [🤝 Contributing](#-contributing)
+- [👥 Team Members](#-team-members)
+- [📄 License](#-license)
 
 ---
 
-## Table of Contents
 
-- [Project Overview](#project-overview)
-- [Repository Structure](#repository-structure)
-- [Core Objectives](#core-objectives)
-- [Technologies Used](#technologies-used)
-- [Getting Started](#getting-started)
-- [Normalization vs. Denormalization](#normalization-vs-denormalization)
-- [Why Not Run Analytics Directly on OLTP?](#why-not-run-analytics-directly-on-oltp)
-- [The Importance of ETL Automation](#the-importance-of-etl-automation)
-- [Testing](#testing)
-- [Known Issues](#known-issues)
-- [Contributing](#contributing)
-- [License](#license)
+## 🧠 Project Overview
 
+This project simulates a real-world retail system integrating an Online Transaction Processing (OLTP) system with an Online Analytical Processing (OLAP) system.
+
+The objective is to:
+- Design normalized OLTP schemas
+- Construct an OLAP star schema
+- Implement ETL (Extract, Transform, Load)
+- Run OLAP queries for insights
 
 ---
 
-## Project Overview
+## 🗂️ Repository Structure
 
-This project simulates a real-world retail system by integrating Online Transaction Processing (OLTP) with Online Analytical Processing (OLAP). It focuses on:
-
-- Designing a robust, normalized OLTP transactional database.
-- Building an optimized OLAP star schema data warehouse.
-- Implementing an efficient ETL (Extract, Transform, Load) pipeline.
-- Running analytical queries to uncover critical business insights.
-
----
-
-## Repository Structure
-
-| Directory       | Description                                                       |
-|-----------------|-------------------------------------------------------------------|
-| `oltp_schema/`  | SQL scripts for creating the normalized OLTP transactional database. |
-| `sample_data/`  | Sample CSV files and SQL scripts for populating OLTP tables.       |
-| `olap_schema/`  | SQL scripts to build the denormalized OLAP star schema.            |
-| `etl_scripts/`  | SQL scripts that perform the ETL process from OLTP to OLAP.        |
-| `queries/`      | SQL scripts for running analytical queries on the OLAP database.  |
-| `LICENSE`       | License details for project usage.                                 |
-| `Question 5 Answers.docx` | Reflective answers to lab questions.                       |
-| `README.md`     | This documentation file.                                           |
+- [`etl_scripts/`](etl_scripts) — SQL ETL scripts (e.g., `dim_date` population)
+- [`olap_schema/`](olap_schema) — OLAP star schema creation
+- [`oltp_schema/`](oltp_schema) — OLTP normalized database setup
+- [`queries/`](queries) — Analytical SQL queries on the OLAP DB
+- [`sample_data/`](sample_data) — CSV files and sample data loaders
+- [`LICENSE`](LICENSE) — MIT License
+- [`Ass2.pdf`](Ass2.pdf) — Assignment / Question Paper
+- [`Question 5 Answers.pdf`](Question%205%20Answers.pdf) — Written reflections and answers
 
 ---
 
-## Core Objectives
+## 🎯 Core Objectives
 
-- **OLTP Schema Design:** Develop a normalized database optimized for day-to-day transactional operations.
-- **OLAP Star Schema Construction:** Create a denormalized data warehouse optimized for fast analytical queries.
-- **Seamless ETL Integration:** Extract, transform, and load data from OLTP to OLAP efficiently.
-- **Analytical Query Execution:** Run diverse queries to analyze sales trends, product performance, and key business metrics.
-
----
-
-## Technologies Used
-
-- **SQL** — Schema definition, ETL processing, and complex querying.
-- **Relational Database Management System** — PostgreSQL or MySQL recommended.
-- Optional: Any SQL client for running scripts (e.g., pgAdmin, MySQL Workbench).
+- **OLTP Design:** Create normalized transactional schemas
+- **OLAP Modeling:** Build efficient star schema for analytics
+- **ETL Workflow:** Automate data transfer and transformation
+- **Analytics:** Run insightful business queries
 
 ---
 
-## Getting Started
+## 🛠️ Technologies Used
 
-### Prerequisites
-
-- PostgreSQL 14+ or MySQL 8+
-- SQL client tools installed
-- Basic knowledge of SQL scripting
-
-### Setup Steps
-
-1. **Create OLTP Database**  
-   Run SQL scripts inside `oltp_schema/` to create normalized transactional tables.
-
-2. **Populate OLTP Data**  
-   Use scripts or CSV files from `sample_data/` to seed the OLTP database.
-
-3. **Create OLAP Data Warehouse**  
-   Execute scripts in `olap_schema/` to build the star schema (fact and dimension tables).
-
-4. **Run ETL Process**  
-   Execute the ETL SQL scripts from `etl_scripts/` to transfer and transform data from OLTP to OLAP.
-
-5. **Run Analytical Queries**  
-   Use the scripts in `queries/` to perform analytical queries and extract business insights.
+- **SQL** — Schema definition, ETL, querying
+- **PostgreSQL / MySQL** — Database engines
+- **CSV** — Sample data files
 
 ---
 
-## Normalization vs. Denormalization
+## 🚀 Getting Started
 
-- **OLTP (Normalized):**  
-  Designed for transactional integrity and efficient updates with minimal redundancy. Data is split into multiple related tables.
+### ✅ Step 1: Build OLTP  
+Use [`oltp_schema/`](oltp_schema) to create normalized tables (e.g., `customers`, `products`, `stores`, `transactions`).
 
-- **OLAP (Denormalized):**  
-  Designed for fast querying and reporting. Data is combined into fewer wide tables to reduce complex joins.
+### ✅ Step 2: Populate OLTP Data  
+Load data from [`sample_data/`](sample_data).
+
+### ✅ Step 3: Build OLAP Star Schema  
+Use [`olap_schema/`](olap_schema) for `fact_sales`, `dim_date`, etc.
+
+### ✅ Step 4: Run ETL  
+Transform and load data using scripts in [`etl_scripts/`](etl_scripts).
+
+### ✅ Step 5: Perform Analysis  
+Use queries in [`queries/`](queries) to generate insights.
+
+---
+## Reflection
+### 🔄 Normalization vs. Denormalization
+
+| OLTP (Normalized) | OLAP (Denormalized) |
+|------------------|---------------------|
+| 3NF Design        | Star Schema         |
+| Write-heavy       | Read-heavy          |
+| Data integrity    | Query performance   |
 
 ---
 
-## Why Not Run Analytics Directly on OLTP?
+### ❓ Why Separate OLTP and OLAP?
 
-Running heavy analytical queries on OLTP systems causes:
-
-- **Performance degradation** on transactional processing.
-- **Resource contention** between transactions and analytical queries.
-- **Data inconsistency** due to ongoing transactions.
-- **Complex query design** due to normalized schema.
-- **Limited historical analysis** because OLTP focuses on current data.
+- ✅ Avoids performance bottlenecks
+- ✅ Ensures transactional stability
+- ✅ Enables historical trend analysis
+- ✅ Allows for complex reporting
 
 ---
 
-## The Importance of ETL Automation
+### ⏱️ Automation & ETL Scheduling
 
-Scheduled ETL pipelines provide:
+Benefits of automated ETL:
 
-- Timely and consistent updates to the OLAP warehouse.
-- Reduced manual errors and operational overhead.
-- Scalability to growing data volumes.
-- Improved monitoring and auditability.
-- Optimized resource usage by running during off-peak hours.
+- 📅 Timely data refresh
+- 📉 Reduces human error
+- 🔁 Continuous integration of new data
+- 🧩 Supports data pipelines
+
+  #### For more information visit [`Question 5 Answers.pdf`](Question%205%20Answers.pdf) — Written reflections and answers
+---
+
+## 🧪 Testing
+
+- ✔️ Validate row counts between OLTP and OLAP
+- ✔️ Confirm dimensions align with expected records
+- ✔️ Run queries from [`queries/`](queries) and inspect results
 
 ---
 
-## Testing
+## 🐞 Known Issues
 
-To validate your setup:
+- ETL requires tweaks for edge cases
+- Query performance may depend on indexes or hardware
+- Potential duplicate handling in sample data
 
-- Run data consistency checks comparing OLTP and OLAP counts.
-- Execute sample queries in the `queries/` folder and verify results.
-- Optionally, use database-specific tools for integrity testing.
+---
 
-## Known Issues
+## 🤝 Contributing
 
-- ETL scripts assume consistent data formats; manual adjustments may be needed for real-world irregularities.
-- Performance may vary based on database tuning and hardware.
+We welcome contributors!
 
-## Contributing
+1. Fork the repo
+2. Create a feature branch
+3. Submit a pull request with a clear description
+4. Mention relevant issues or suggestions
 
-Contributions, issues, and feature requests are welcome! Feel free to:
+---
 
-- Fork the repo
-- Open pull requests
-- Submit issues
+## 👥 Team Members
 
-Please follow standard GitHub contribution guidelines.
+| Name | GitHub | Student ID |
+|------|--------|------------|
+| Misati Nyambane | [@mistiusiu](https://github.com/mistiusiu) | 670145 |
+| Justice Chawanda | [@jpchawanda1](https://github.com/jpchawanda1) | 670444 |
+| Samuel Abrha | [@SamAbr](https://github.com/SamAbr) | 670533 |
+| Paul Mbuvi | [@paulmbuvi](https://github.com/paulmbuvi) | 669984 |
+| Cynthia Gathogo | [@cngathogo](https://github.com/cngathogo) | 668745 |
+| Ambachow Kahsay | [@aykahsay](https://github.com/aykahsay) | 670550 |
 
-## License
+---
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+## 📄 License
 
+This project is licensed under the [MIT License](LICENSE).
+
+---
